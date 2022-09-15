@@ -1,19 +1,20 @@
 import React, { useEffect,useState } from 'react'
 import { Pressable,ScrollView,StyleSheet, View,Text, TextInput,Image, Alert } from 'react-native'
 import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import HOMIcon from './../assets/headerlogo.svg';
-import { CoatArray ,ShirtArray, womenCoatArray} from '../components/DataArrays';
-import CatIcon from './../assets/Group45.png'
+import { CoatArray ,ShirtArray, womenCoatArray,mensherwani,menprincecoat, menWaistCoat} from '../components/DataArrays';
 import { useSelector,useDispatch } from 'react-redux';
-import { setResult } from '../Store/action';
+import AntDesignIcons from 'react-native-vector-icons/AntDesign';
+import { delItem } from '../Store/action';
 
 const OutputPage = ({navigation}) => {
 
-    var dispatch = useDispatch();
-    var reduxData = useSelector(state=>state)
+    var reduxData = useSelector(state=>state.result)
     var [fetchedData,setFetchedData] = useState(undefined);
     var [counter,setCounter] = useState(0)
-    
+    var [pdfName,setPdfName] = useState('')
+    var [showDel,setShowDel] = useState(-1)
+    var dispatch = useDispatch()
+    console.log(reduxData)
     useEffect(()=>{
         setTimeout(()=>{
             setCounter(1)
@@ -26,14 +27,13 @@ const OutputPage = ({navigation}) => {
             console.log('ues')
         },4000)
 
-    },[])
+    },[reduxData])
     const handleNext=()=>{
         console.log("done")
         Alert.alert('Printed')
     }
 
     const handleBack=()=>{
-        // dispatch(setResult('result',{title:'coat',data:reduxData.men.coat}))
         navigation.navigate('categories')
     }
 
@@ -46,29 +46,54 @@ showsVerticalScrollIndicator={false}
         </View>
         <Text style={{fontSize:wp(4),fontFamily:'Megante-Personal-Use'}}>Client Name</Text>
         <TextInput 
+        value={pdfName}
+        onChangeText={txt=>setPdfName(txt)}
         style={styles.input}
         />
 <Text style={styles.detailsTxt}>Order Details</Text>
 
-{fetchedData?.result &&
-    fetchedData.result.map((v,i)=>{
-        console.log(v)
+{fetchedData &&
+    fetchedData.map((v,i)=>{
     return(
         <View key={i}>
-
+            <Pressable
+            onPress={()=>setShowDel(i)}
+            >
+<View style={{display:'flex',flexDirection:'row',justifyContent:'space-between',alignItems:'center'}}>
 <View style={styles.countDiv}>
     <Text style={styles.countTxt}>{i+1}</Text>
 </View>
-
+{
+    i==showDel &&    
+<View style={styles.cancelDiv}>
+    <Pressable onPress={e=>{
+        dispatch(delItem('remove_item',i))
+        e.preventDefault();
+    }}>
+    <AntDesignIcons name='close' size={wp(4)} />
+    </Pressable>
+</View>
+}
+</View>
 {/* step one image */}
 <View style={styles.outputCoatMain}>
     {v.title=='coat' ? CoatArray.step1.images[v.data[0]] : v.title=='womanCoat' ? womenCoatArray.step1.images[v.data[0]] : 
+    v.title=='menprincecoat' ?
+    menprincecoat.step1.images[v.data[0]]
+    : 
+    v.title=='mensherwani' ?
+    mensherwani.step1.images[v.data[0]]
+    : 
+    v.title=='menWais' ?
+    menWaistCoat.step1.images[v.data[0]]
+    : 
     ShirtArray.step1.images[v.data[0]]}
 </View>
 
 {/* step two three four div */}
 {
-    !(v.title=='womanCoat') &&
+    !(v.title=='womanCoat' || v.title=='menprincecoat' || v.title=='mensherwani' 
+    || v.title=='menWais') &&
 <View style={styles.outputCatFirstMain}>
 
 {/* step two image */}
@@ -108,7 +133,6 @@ showsVerticalScrollIndicator={false}
 
 </View>
 }
-
 
 {/* step five six seven div */}
 {
@@ -153,7 +177,8 @@ showsVerticalScrollIndicator={false}
 
 {/* step five six / eight nine div */}
 {
-!(v.title=='womanCoat') &&
+!(v.title=='womanCoat' || v.title=='menprincecoat' || v.title=='mensherwani'
+|| v.title=='menWais') &&
 <View style={{...styles.outputCatFirstMain,marginTop:hp(4)}}>
 
 {/* step five image */}
@@ -189,7 +214,7 @@ showsVerticalScrollIndicator={false}
 }
 
 <Image source={require('./../assets/lineshape.png')} style={styles.line} />
-
+</Pressable>
         </View>
     )
 }
@@ -221,8 +246,10 @@ export default OutputPage
 
 const styles = StyleSheet.create({
     outPutMain:{
-        width:wp(94),
-        marginLeft:wp(3),
+        width:wp(100),
+        paddingLeft:wp(3),
+        paddingRight:wp(3),
+        backgroundColor:'#fff'
     },
 
     outputIconMain:{
@@ -264,7 +291,9 @@ const styles = StyleSheet.create({
         width:wp(23),
     },
     catSecondMain:{
-        width:wp(45),
+        width:wp(37),
+        marginLeft:wp(4),
+        marginRight:wp(4),
         alignItems:'center'
     }, 
     subCatOutput:{
@@ -356,4 +385,18 @@ const styles = StyleSheet.create({
             fontWeight:'600',
         fontFamily:'Megante-Personal-Use'
       },
+      cancelTxt:{
+        color:'#333333',
+      },
+      cancelDiv:{
+        backgroundColor:'#fff',
+        borderColor:'#333333',
+        borderWidth:1,
+        width:wp(10),
+        height:wp(10),
+        borderRadius:wp(50),
+        justifyContent:'center',
+        alignItems:'center',
+        marginTop:hp(3)
+      }
 })

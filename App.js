@@ -25,8 +25,8 @@ const App = () => {
     <NativeBaseProvider>
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown:false}}>
-        <Stack.Screen name="/" component={Categories} />
-        {/* <Stack.Screen name="/" component={SplashScreen} /> */}
+        {/* <Stack.Screen name="/" component={Categories} /> */}
+        <Stack.Screen name="/" component={SplashScreen} />
         <Stack.Screen name="details" component={ItemDetails} />
         <Stack.Screen name="categories" component={Categories} />
         <Stack.Screen name="OutputPage" component={OutputPage} />

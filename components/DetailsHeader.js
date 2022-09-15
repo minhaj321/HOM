@@ -5,13 +5,13 @@ import { ScrollView,ImageBackground ,Image, Text,View,StyleSheet, Pressable} fro
 import Blackcircle1 from './../assets/circle/blackcircle1.png'
 import Whitecircle1 from './../assets/circle/whitecircle1.png'
 
-const DetailsHeader = () => {
+const DetailsHeader = ({type,categoryHandler}) => {
 
     var [men,setMan] = useState(true)
-    var [type,setType] = useState('coat')
+    var [type,setType] = useState(type)
 
     var man = [
-        {title:'coat',tag:'Coat',
+        {title:'menCoat',tag:'Coat',
         black:
         <Image source={require('./../assets/CatMan/mencoatblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -21,7 +21,7 @@ const DetailsHeader = () => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'pant',tag:'Pant',
+        {title:'menPant',tag:'Pant',
         black:
         <Image source={require('./../assets/CatMan/menpantblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -31,7 +31,7 @@ const DetailsHeader = () => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'sher',tag:'Sherwani',
+        {title:'menSher',tag:'Sherwani',
         black:<Image source={require('./../assets/CatMan/mensherwani.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />,
@@ -39,7 +39,7 @@ const DetailsHeader = () => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'prin',tag:'Prince Coat',
+        {title:'menPrin',tag:'Prince Coat',
         black:
         <Image source={require('./../assets/CatMan/prince-coat-black-333.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -49,7 +49,7 @@ const DetailsHeader = () => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'wais',tag:'Waist Coat',
+        {title:'menWais',tag:'Waist Coat',
         black:
         <Image source={require('./../assets/CatMan/menwaistcoatblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -59,7 +59,7 @@ const DetailsHeader = () => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'shir',tag:'Shirt',
+        {title:'menShir',tag:'Shirt',
         black:
         <Image source={require('./../assets/CatMan/menshirtblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -71,7 +71,7 @@ const DetailsHeader = () => {
     },
     ]
     var women = [
-        {title:'coat',tag:'Coat',
+        {title:'womenCoat',tag:'Coat',
         black:
         <Image source={require('./../assets/CatWomen/womencoatblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -144,7 +144,11 @@ const DetailsHeader = () => {
                 <View style={styles.detMainComp} key={i}>
                 <ImageBackground key={i} source={type==v.title ? Blackcircle1 : Whitecircle1} style={styles.detailsCatSmallDiv}>
                  <Pressable style={{height:'100%',width:'100%',...styles.detailsCatSmallDiv,marginLeft:wp(0),marginTop:wp(0)}}
-                 onPress={()=>setType(v.title)}
+                 onPress={()=>
+                    {   categoryHandler(v.title)
+                        setType(v.title)
+                    }
+                }
                  >
                     {
                         type==v.title ? 
@@ -163,7 +167,10 @@ const DetailsHeader = () => {
                 <View style={styles.detMainComp} key={i}>
                 <ImageBackground key={i} source={type==v.title ? Blackcircle1 : Whitecircle1} style={styles.detailsCatSmallDiv}>
                  <Pressable style={{height:'100%',width:'100%',...styles.detailsCatSmallDiv,marginLeft:wp(0),marginTop:wp(0)}}
-                 onPress={()=>setType(v.title)}
+                 onPress={()=>{
+                    categoryHandler(v.title)
+                    setType(v.title) 
+                }}
                  >
                     {
                         type==v.title ? 

@@ -45,13 +45,13 @@ export const CoatArray={
         tags:['Notch Lapels','Peak Lapels','Shawl Lapels'],
         images:[
         <Image source={require('./../assets/Group81.png')}
-        style={{resizeMode:'contain',height:'120%',width:'120%'}}
+        style={{resizeMode:'contain',height:'135%',width:'135%'}}
         />,
         <Image source={require('./../assets/Group82.png')}
-        style={{resizeMode:'contain',height:'120%',width:'120%'}}
+        style={{resizeMode:'contain',height:'135%',width:'135%'}}
         />,
      <Image source={require('./../assets/Group83.png')}
-     style={{resizeMode:'contain',height:'120%',width:'120%'}}
+     style={{resizeMode:'contain',height:'135%',width:'135%'}}
      />,    ]
     },
     step3:{
@@ -59,19 +59,19 @@ export const CoatArray={
         tags:['Patch Pocket','Ticket Pocket','Angled Pocket','Flap Pocket','Jetted Pocket'],
         images:[
             <Image source={require('./../assets/1.png')}
-            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            style={{resizeMode:'contain',height:'120%',width:'120%'}}
             />,
             <Image source={require('./../assets/2_1.png')}
-            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            style={{resizeMode:'contain',height:'120%',width:'120%'}}
             />,
             <Image source={require('./../assets/3_1.png')}
-            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            style={{resizeMode:'contain',height:'120%',width:'120%'}}
             />,
             <Image source={require('./../assets/4_1.png')}
-            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            style={{resizeMode:'contain',height:'120%',width:'120%'}}
             />,
             <Image source={require('./../assets/5_1.png')}
-            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            style={{resizeMode:'contain',height:'120%',width:'120%'}}
             />,
     ]
 },
@@ -211,13 +211,13 @@ export const ShirtArray={
         tags:['Round','Straight','Straight Side Cut'],
         images:[
             <Image source={require('./../assets/shirtcategory/shirtbottomsection6/1.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtbottomsection6/2.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtbottomsection6/3.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />
         ]
     },
@@ -270,13 +270,13 @@ export const ShirtArray={
               '2 Button Notched','French','French Rounded','French Contoured'],
         images:[
             <Image source={require('./../assets/shirtcategory/shirtcuffsection8/1_10.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtcuffsection8/2_9.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtcuffsection8/3_8.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtcuffsection8/4_6.png')}
             style={{resizeMode:'contain',height:'130%',width:'130%'}}
@@ -303,28 +303,28 @@ export const ShirtArray={
         tags:['one','tow','three','four','five','six','seven','eight'],
         images:[
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/1_11.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/2_10.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/3_9.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/4_7.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/5_5.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/6_2.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/7_2.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />,
             <Image source={require('./../assets/shirtcategory/shirtpocketstylesection9/8_3.png')}
-            style={{resizeMode:'contain',height:'130%',width:'130%'}}
+            style={{resizeMode:'contain',height:'140%',width:'140%'}}
             />
         ]
     },
@@ -370,4 +370,118 @@ export const womenCoatArray={
 
         ]
     },
+}
+
+
+export const menprincecoat = {
+    step1:{
+        title:'',
+        tags:['One','Two','Three','Four','Five','Six'],
+        images:[
+            <Image source={require('./../assets/menprincecoat/princecoat1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menprincecoat/princecoat2.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menprincecoat/princecoat3.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menprincecoat/princecoat4.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menprincecoat/princecoat5.png')}
+            style={{resizeMode:'contain',height:'110%',width:'110%'}}
+            />,
+            <Image source={require('./../assets/menprincecoat/princecoat6.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+    
+        ]        
+    }
+
+}
+
+export const mensherwani={
+    step1:{
+        title:'',
+        tags:['One','Two','Three','Four','Five','Six','Seven','Eight'],
+        images:[
+            <Image source={require('./../assets/mensherwani/sherwani1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani2.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani3.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani4.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani5.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani6.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani7.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+            <Image source={require('./../assets/mensherwani/sherwani8.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,   
+        ]
+    }
+}
+
+
+export const menWaistCoat={
+    step1:{
+        title:['SB,5 Button',
+        'SB,6 Button',
+        'SB,5 Button',
+        'SB,4 Button,horseshoe',
+        'SB,5 Button',
+        'SB,4 Buttons,horseshoe',
+        'DB 6 x 3 shawl lapel',
+        'DB 8x4 peak lapel',
+    ],
+        
+        tags:['with points',
+        'with points',
+        'lapel with points',
+        'with points',
+        'straight bottom',
+        'straight bottom',
+        'straight bottom',
+        'straight bottom ',
+    ],
+        images:[
+            <Image source={require('./../assets/menWaistCoat/1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/2.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/3.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/4.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/5.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/6.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/7.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/menWaistCoat/8.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+        ]
+}
 }

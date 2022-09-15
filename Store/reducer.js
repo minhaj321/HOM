@@ -173,21 +173,52 @@ const initialState = {
                 }
         };
         break;
-        // case 'men_unknown_shirt':
-        //     return{
-        //     ...state,
-        //         men:{
-        //             ...state.men,
-        //             shirt:[state.men.shirt[0],state.men.shirt[1],state.men.shirt[2],
-        //             state.men.shirt[3],state.men.shirt[4],state.men.shirt[5],state.men.shirt[6],
-        //             state.men.shirt[7],action.val]
-        //         }
-        // };
-        // break;
+        case 'reset':
+            return{
+                ...state,
+                men:{
+                    coat:[-1,-1,-1,-1,-1],
+                    pant:[-1],
+                    shirt:[-1,-1,-1,-1,-1,-1,-1,-1],
+                    waistCoat:[-1],
+                    princeCoat:[-1],
+                    sherwani:[-1],
+                },
+                women:{
+                    coat:[-1,-1,-1,-1],
+                    pant:[-1],
+                    shiry:[-1],
+                    waistCoat:[-1],
+                },
+        };
+        break;
+        // removing item
+        case 'remove_item':
+        {
+            if(action.val==state.result.length-1){
+                state.result.pop();
+                return{
+                    ...state,
+                    result:[...state.result.slice(0,action.val)]
+                }
+
+            }else if(action.val==0){
+                return{
+                    ...state,
+                    result:[...state.result.slice(1)]
+                }
+            }else{
+                return{
+                    ...state,
+                    result:[...state.result.slice(0,action.val),...state.result.slice(action.val+1)]
+                }
+            }
+        }
+        break;
+
         // saving result
         case 'result':
             {
-                console.log('yes==>',action)
             return{
             ...state,
                 result:[...state.result,action.entry]

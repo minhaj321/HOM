@@ -13,19 +13,29 @@ const Categories = ({navigation}) => {
     var [type,setType] = useState('')
 
     const handleSelector = (val)=>{
-        if(val==type){
-            console.log('type iss=<',type)
-            navigation.navigate('details',{
-                selectedType : type
-            })
-            // navigate as per this selected route
-        }else{
+
             setType(val)
-        }
+            setTimeout(()=>{
+                setType('')
+                navigation.navigate('details',{
+                selectedType : val
+            })
+
+            },2000)
+        
+        
+        // if(val==type){
+        //     console.log('type iss=<',type)
+        //     navigation.navigate('details',{
+        //         selectedType : type
+        //     })
+        // }else{
+        //     setType(val)
+        // }
     }
 
     return (
-    <View>
+    <View style={{backgroundColor:'#fff'}}>
         <ImageBackground source={HeaderBgImg} style={{alignItems:'center',paddingTop:wp(5),width:wp(100),height:hp(20)}} >
         <Image source={require('./../assets/logo/logo11.png')} style={{width:wp(17),height:wp(17)}}  />
         </ImageBackground>
