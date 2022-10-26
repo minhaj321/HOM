@@ -1,47 +1,119 @@
-import React, { useEffect,useState } from 'react'
+import React, { useEffect,useCallback,useState,useRef } from 'react'
 import { Pressable,ScrollView,StyleSheet, View,Text, TextInput,Image, Alert } from 'react-native'
 import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen'
-import { CoatArray ,ShirtArray, womenCoatArray,mensherwani,menprincecoat, menWaistCoat} from '../components/DataArrays';
+import { CoatArray ,ShirtArray, womenCoatArray,mensherwani,menprincecoat, menWaistCoat, womenShirt, womenWaist, menPant, womenPant} from '../components/DataArrays';
 import { useSelector,useDispatch } from 'react-redux';
 import AntDesignIcons from 'react-native-vector-icons/AntDesign';
-import { delItem } from '../Store/action';
+import { delItem ,setReset} from '../Store/action';
+import RNHTMLtoPDF from 'react-native-html-to-pdf';
+import RNPrint from 'react-native-print';
+import {menCoatBase,menPantBase,menPrinceCoatBase,menWaistCoatBase,mensherwaniBase,womenCoatBase,
+womenPantBase,womenShirtBase,womenWaistBase,ShirtArrayBase} from './../components/baseImages';
 
 const OutputPage = ({navigation}) => {
 
     var reduxData = useSelector(state=>state.result)
     var [fetchedData,setFetchedData] = useState(undefined);
-    var [counter,setCounter] = useState(0)
     var [pdfName,setPdfName] = useState('')
     var [showDel,setShowDel] = useState(-1)
+    var [disp,setDisp] = useState('');
     var dispatch = useDispatch()
-    console.log(reduxData)
+          
+      const calling = async()=>{
+        disp='<div style={{display:"flex",flexDirection:"column",alignItems:"center"}} >'
+        fetchedData.map((v,i)=>{
+            // console.log(v.data[0])
+            if(v.title=='menprincecoat'){
+                disp = disp+`<img height='25%' width='40%' style="margin-left:30%;margin-top:5%" src='${menPrinceCoatBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='mensherwani'){
+                disp = disp+`<img height='25%' width='40%' style="margin-left:30%;margin-top:5%" src='${mensherwaniBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='menWais'){
+                disp = disp+`<img height='25%' width='40%' style="margin-left:30%;margin-top:5%" src='${menWaistCoatBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='womenWais'){
+                disp = disp+`<img  height='30%' width='40%' style="margin-left:30%;margin-top:5%" src='${womenWaistBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='womenShirt'){
+                disp = disp+`<img  height='25%' width='44%' style="margin-left:28%;margin-top:5%" src='${womenShirtBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='menPant'){
+                disp = disp+`<img height='30%' width='40%' style="margin-left:30%;margin-top:5%" src='${menPantBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='womanCoat'){
+                disp = disp+`<img  height='30%' width='40%' style="margin-left:30%;margin-top:5%" src='${womenCoatBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='womenPant'){
+                disp = disp+`<img  height='30%' width='40%' style="margin-left:30%;margin-top:5%" src='${womenPantBase.step1[v.data[0]]}' alt="www" /><br/>`
+            }else if(v.title=='coat'){
+                disp = disp+`<div style='display: flex;flex-direction: row;justify-content: space-between;'>
+                <img height="250" width="150" src="${menCoatBase.step1[v.data[0]]}" alt="">
+                <img height="250" width="150" src="${menCoatBase.step2[v.data[1]]}" alt="">
+                <img height="250" width="150" src="${menCoatBase.step3[v.data[2]]}" alt=""></div>
+        <div style='display: flex;flex-direction: row;justify-content: space-between;margin-top: 20px;'>
+        <img height="250" width="150" src="${menCoatBase.step4[v.data[3]]}" alt="">
+        <img height="250" width="150" src="${menCoatBase.step5[v.data[4]]}" alt="">
+        <img height="250" width="150" src="${menCoatBase.step6[v.data[5]]}" alt=""></div>`    
+    }else if(v.title=='shirt' && v.data[1]>0){
+        disp = disp+`<div style='display: flex;flex-direction: row;justify-content: space-between;'>
+        <img height="250" width="150" src="${ShirtArrayBase.step1[v.data[0]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step2[v.data[1]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step3[v.data[2]]}" alt=""></div>
+        <div style='display: flex;flex-direction: row;justify-content: space-between;margin-top: 20px;'>
+        <img height="250" width="150" src="${ShirtArrayBase.step4[v.data[3]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step5[v.data[4]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step6[v.data[5]]}" alt=""></div>
+        <div style='display: flex;flex-direction: row;justify-content: space-between;margin-top: 20px;'>
+        <img height="150" width="150" src="${ShirtArrayBase.step7[v.data[6]]}" alt="">
+        <img height="150" width="150" src="${ShirtArrayBase.step8[v.data[7]]}" alt="">
+        <img height="150" width="150" src="${ShirtArrayBase.step9[v.data[8]]}" alt=""></div>`
+    }else if(v.title=='shirt' && v.data[1]<=0){
+        disp = disp+`<div style='display: flex;flex-direction: row;justify-content: space-between;'>
+        <img height="250" width="150" src="${ShirtArrayBase.step1[v.data[0]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step2[v.data[1]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step3[v.data[2]]}" alt=""></div>
+        <div style='display: flex;flex-direction: row;justify-content: space-between;margin-top: 20px;'>
+        <img height="250" width="150" src="${ShirtArrayBase.step4[v.data[3]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step5[v.data[4]]}" alt="">
+        <img height="250" width="150" src="${ShirtArrayBase.step6[v.data[5]]}" alt=""></div>
+        <div style='display: flex;flex-direction: row;justify-content: space-between;margin-top: 20px;'>
+        <img height="150" width="150" src="${ShirtArrayBase.step7[v.data[6]]}" alt="">
+        <img height="150" width="150" src="${ShirtArrayBase.step8[v.data[7]]}" alt=""></div>`
+    }
+
+})        
+disp=disp+'</div>'
+
+            // html: `<img  height=${200} width=${200} src='' alt="www" />`,
+            const results = await RNHTMLtoPDF.convert({
+            html: disp,
+            fileName: 'test',
+            base64: true,
+          })
+          await RNPrint.print({ filePath: results.filePath })
+    }
+
     useEffect(()=>{
+        // calling()
         setTimeout(()=>{
-            setCounter(1)
             setFetchedData(reduxData)
-            console.log('ues  1')
+            console.log(fetchedData)
         },2000)
         setTimeout(()=>{
             setFetchedData(reduxData)
-            setCounter(0)
-            console.log('ues')
-        },4000)
+            console.log(fetchedData)
+        },3000)
 
     },[reduxData])
-    const handleNext=()=>{
-        console.log("done")
-        Alert.alert('Printed')
-    }
+
+        const handleNext=async()=>{
+            calling()
+        }
 
     const handleBack=()=>{
+        dispatch(setReset())
         navigation.navigate('categories')
     }
 
-return (
-<ScrollView style={styles.outPutMain}
-showsVerticalScrollIndicator={false}
->
-        <View style={styles.outputIconMain}>
+    return (
+        <ScrollView style={styles.outPutMain}
+        showsVerticalScrollIndicator={false}
+        > 
+    <View    style={styles.outputIconMain}>
         <Image source={require('./../assets/logo/logo11.png')} style={{width:wp(17),height:wp(17)}} />
         </View>
         <Text style={{fontSize:wp(4),fontFamily:'Megante-Personal-Use'}}>Client Name</Text>
@@ -52,10 +124,10 @@ showsVerticalScrollIndicator={false}
         />
 <Text style={styles.detailsTxt}>Order Details</Text>
 
-{fetchedData &&
+{(fetchedData) &&
     fetchedData.map((v,i)=>{
     return(
-        <View key={i}>
+        <View >
             <Pressable
             onPress={()=>setShowDel(i)}
             >
@@ -87,13 +159,25 @@ showsVerticalScrollIndicator={false}
     v.title=='menWais' ?
     menWaistCoat.step1.images[v.data[0]]
     : 
+    v.title=='womenShirt' ?
+    womenShirt.step1.images[v.data[0]]
+    : 
+    v.title=='womenWais' ?
+    womenWaist.step1.images[v.data[0]]
+    :
+    v.title=='menPant' ?
+    menPant.step1.images[v.data[0]]
+    :
+    v.title=='womenPant' ?
+    womenPant.step1.images[v.data[0]]
+    :
     ShirtArray.step1.images[v.data[0]]}
 </View>
 
 {/* step two three four div */}
 {
     !(v.title=='womanCoat' || v.title=='menprincecoat' || v.title=='mensherwani' 
-    || v.title=='menWais') &&
+    || v.title=='menWais' || v.title=='womenShirt' || v.title=='womenWais' || v.title=='menPant' || v.title=='womenPant') &&
 <View style={styles.outputCatFirstMain}>
 
 {/* step two image */}
@@ -177,8 +261,10 @@ showsVerticalScrollIndicator={false}
 
 {/* step five six / eight nine div */}
 {
-!(v.title=='womanCoat' || v.title=='menprincecoat' || v.title=='mensherwani'
-|| v.title=='menWais') &&
+(!(v.title=='womanCoat' || v.title=='menprincecoat' || v.title=='mensherwani'
+|| v.title=='menWais' || v.title=='womenShirt' || v.title=='womenWais' || v.title=='menPant' || v.title=='womenPant')
+&&
+(v.title=='coat' || v.data[1]>0) ) &&
 <View style={{...styles.outputCatFirstMain,marginTop:hp(4)}}>
 
 {/* step five image */}
@@ -199,11 +285,13 @@ showsVerticalScrollIndicator={false}
 {/* step six image */}
 <View style={styles.catSecondMain}>
     <View style={styles.subCatOutput}>
-    {v.title=='coat' ? 
-                 CoatArray?.step6?.images[v.data[5]]
-                 :
-                 ShirtArray?.step9?.images[v.data[8]]
-                 }
+    {
+(v.title=='coat')
+    ?
+    CoatArray?.step6?.images[v.data[5]]
+        :
+    ShirtArray?.step9?.images[v.data[8]]
+    }
     </View>
     <Text style={styles.outputTxt}>Sleeve Button</Text>
     <Text style={styles.outputTxt}>Placement Styles</Text>
@@ -211,6 +299,26 @@ showsVerticalScrollIndicator={false}
 </View>
 
 </View>
+}
+
+{
+    (v.title=='shirt' && v.data[1]<=0) &&
+    <View style={{...styles.outputCatFirstMain,marginTop:hp(4)}}>
+
+{/* step five image */}
+<View style={styles.catOneMain}>
+    <View style={styles.subCatOutput}>
+    { 
+                 ShirtArray?.step8?.images[v.data[7]]
+                }
+    </View>
+    <Text style={styles.outputTxt}>Suit Jacket Sleeve</Text>
+    <Text style={styles.outputTxt}>Buttons</Text>
+    <Text style={styles.outputTxt}>One Button</Text>
+
+    </View>
+</View>
+
 }
 
 <Image source={require('./../assets/lineshape.png')} style={styles.line} />
@@ -242,6 +350,7 @@ showsVerticalScrollIndicator={false}
     )
 }
 
+{/* </ViewShot> */}
 export default OutputPage
 
 const styles = StyleSheet.create({

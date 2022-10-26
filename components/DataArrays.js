@@ -2,6 +2,7 @@ import React from 'react';
 import {Image} from 'react-native'
 import { heightPercentageToDP as hp,widthPercentageToDP as wp } from 'react-native-responsive-screen';
 
+// eighth
 export const CoatArray={
     step1:{
         title:'Single Breasted Five Buttons',
@@ -129,6 +130,7 @@ export const CoatArray={
 }
 };
 
+// ninth
 export const ShirtArray={
     step1:{
         title:'Fit Style',
@@ -331,7 +333,7 @@ export const ShirtArray={
 
 }
 
-
+// seventh
 export const womenCoatArray={
     step1:{
         title:['Single Breasted Two Buttons','Single Breasted One Button',
@@ -372,7 +374,7 @@ export const womenCoatArray={
     },
 }
 
-
+// sixth
 export const menprincecoat = {
     step1:{
         title:'',
@@ -401,7 +403,7 @@ export const menprincecoat = {
     }
 
 }
-
+// fourth
 export const mensherwani={
     step1:{
         title:'',
@@ -435,7 +437,7 @@ export const mensherwani={
     }
 }
 
-
+// fifth
 export const menWaistCoat={
     step1:{
         title:['SB,5 Button',
@@ -484,4 +486,191 @@ export const menWaistCoat={
             />,  
         ]
 }
+}
+
+// third
+export const womenShirt = {
+    step1:{
+        tags:['one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen'],
+        title:'',
+        images:[
+            <Image source={require('./../assets/womenShirt/womenshirt1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt2.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt3.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt4.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt5.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt6.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt7.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt8.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt9.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt10.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt11.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt12.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+            <Image source={require('./../assets/womenShirt/womenshirt13.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,  
+
+        ]
+    }
+}
+
+// second
+export const womenWaist = {
+    step1:{
+        title:'',
+        tags:['One','Two','Three','Four','Five','Six','Seven','Eight','Nine','Ten','Eleven','Twelve'],
+        images:[
+            <Image source={require('./../assets/womenWaist/1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/2_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/3_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/4_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/5_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/6_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/7_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/8_1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/9.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/10.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/11.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenWaist/12.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+
+        ]
+    }
+}
+
+// first
+export const menPant = {
+    step1:{
+        title:'',
+        tags:['One','Two','Three','Four'],
+        images:[
+            <Image source={require('./../assets/menPant/pant1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menPant/pant2.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menPant/pant3.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/menPant/pant4.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+
+        ]
+    }
+}
+
+// tenth
+export const womenPant = {
+    step1:{
+        title:'',
+        tags:['Straight','Skinny','Boot-cut','flare','wide leg',"pegged",'Stirrup','5-pocket jeans','bush pants','cargo pants','sailor pants','jodhpurs','sweat pants','harem','palazzo','carpenter/overall','jumpsuit','hot pants','skart'],
+        images:[
+            <Image source={require('./../assets/womenPant/pant1.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant2.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant3.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant4.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant5.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant6.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant7.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant8.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant9.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant10.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant11.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant12.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant13.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant14.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant15.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant16.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant17.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant18.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+            <Image source={require('./../assets/womenPant/pant19.png')}
+            style={{resizeMode:'contain',height:'100%',width:'100%'}}
+            />,
+        ]
+    }
 }

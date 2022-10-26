@@ -2,7 +2,7 @@ import { CoatArray,ShirtArray } from "../components/DataArrays"
 import { useDispatch } from "react-redux";
 import {setCurrentType} from '../Store/action';
 
-export const HandleShirt =(currentItems,selectedIndex,setCurrentItems,setCurrentType)=>{
+export const HandleShirt =(currentItems,selectedIndex,setCurrentItems,setCurrentType,reduxData)=>{
 
     console.log("yes")
       // coat setting for redux
@@ -60,9 +60,16 @@ export const HandleShirt =(currentItems,selectedIndex,setCurrentItems,setCurrent
             break;
         case ShirtArray.step8:
           {
-        setCurrentItems(ShirtArray.step9)
-        return 'men_Cuff_shirt'
-        // dispatch(setCurrentType('men_Cuff_shirt',selectedIndex));
+            if(reduxData.men.shirt[1]!=0){
+              {
+                setCurrentItems(ShirtArray.step9)
+                return 'men_Cuff_shirt'
+                // dispatch(setCurrentType('men_Cuff_shirt',selectedIndex));
+                  }
+            }else{
+                setCurrentItems(ShirtArray.step9)
+                return 'resultPasssed'
+            }
           }
             break;
         case ShirtArray.step9:

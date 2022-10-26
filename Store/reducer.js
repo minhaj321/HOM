@@ -163,14 +163,29 @@ const initialState = {
         };
         break;
         case 'men_Cuff_shirt':
-            return{
-            ...state,
-                men:{
-                    ...state.men,
-                    shirt:[state.men.shirt[0],state.men.shirt[1],state.men.shirt[2],
-                    state.men.shirt[3],state.men.shirt[4],state.men.shirt[5],state.men.shirt[6],action.val
-                    ]
+            {
+                if(state.men.shirt[1]==0){
+                    return{
+                        ...state,
+                        men:{
+                            ...state.men,
+                            shirt:[state.men.shirt[0],state.men.shirt[1],state.men.shirt[2],
+                            state.men.shirt[3],state.men.shirt[4],state.men.shirt[5],state.men.shirt[6],-1
+                            ]
+                        }                        
+                    }
+                }else{
+                    return{
+                        ...state,
+                            men:{
+                                ...state.men,
+                                shirt:[state.men.shirt[0],state.men.shirt[1],state.men.shirt[2],
+                                state.men.shirt[3],state.men.shirt[4],state.men.shirt[5],state.men.shirt[6],action.val
+                                ]
+                            }
                 }
+            }
+
         };
         break;
         case 'reset':

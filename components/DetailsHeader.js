@@ -7,7 +7,7 @@ import Whitecircle1 from './../assets/circle/whitecircle1.png'
 
 const DetailsHeader = ({type,categoryHandler}) => {
 
-    var [men,setMan] = useState(true)
+    var [men,setMan] = useState((type=='womenPant' || type=='womenWais' || type=='womenShir' || type=='womenCoat') ? false : true)
     var [type,setType] = useState(type)
 
     var man = [
@@ -80,7 +80,7 @@ const DetailsHeader = ({type,categoryHandler}) => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'pant',tag:'Pant',
+        {title:'womenPant',tag:'Pant',
         black:
         <Image source={require('./../assets/CatWomen/womenpantblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -91,7 +91,7 @@ const DetailsHeader = ({type,categoryHandler}) => {
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
         />},
         
-        {title:'wais',tag:'Waist Coat',
+        {title:'womenWais',tag:'Waist Coat',
         black:
         <Image source={require('./../assets/CatWomen/womenwaistcoatblack.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}
@@ -103,7 +103,7 @@ const DetailsHeader = ({type,categoryHandler}) => {
         />
 },
         
-        {title:'shir',tag:'Shirt',
+        {title:'womenShir',tag:'Shirt',
         black:
         <Image source={require('./../assets/CatWomen/womenshirtblack_1.png')}
         style={{resizeMode:'contain',height:'50%',width:'50%'}}

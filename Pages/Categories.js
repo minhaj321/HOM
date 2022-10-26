@@ -1,37 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import { ScrollView,ImageBackground ,Image, Text,View,StyleSheet, Pressable} from 'react-native'
 import HeaderBgImg from './../assets/headershape.png'
 import { widthPercentageToDP as wp,heightPercentageToDP as hp } from 'react-native-responsive-screen'
 import Whitecircle1 from './../assets/circle/whitecircle1.png'
 import Blackcircle1 from './../assets/circle/blackcircle1.png'
-
-
-
+import RNFS from 'react-native-fs';
+import { useIsFocused } from '@react-navigation/native'
 const Categories = ({navigation}) => {
 
     var [men,setMan] = useState(true)
     var [type,setType] = useState('')
+    var isfOCUSED =useIsFocused()
+
 
     const handleSelector = (val)=>{
 
+        navigation.navigate('/')
             setType(val)
-            setTimeout(()=>{
-                setType('')
-                navigation.navigate('details',{
-                selectedType : val
-            })
+            // setTimeout(()=>{
+            //     setType('')
+            //     navigation.navigate('details',{
+            //     selectedType : val
+            // })
+            // },1000)
 
-            },2000)
-        
-        
-        // if(val==type){
-        //     console.log('type iss=<',type)
-        //     navigation.navigate('details',{
-        //         selectedType : type
-        //     })
-        // }else{
-        //     setType(val)
-        // }
+ 
     }
 
     return (
@@ -52,7 +45,13 @@ const Categories = ({navigation}) => {
                 </Pressable>
             </View>
         </View>
-
+        <View style={{width:wp(12),position:'absolute',right:0,top:hp(19.5),borderTopLeftRadius:10,borderBottomLeftRadius:10,height:wp(12),backgroundColor:'#fff',elevation:7}}>
+            <Pressable style={{width:'100%',height:'100%',justifyContent:'center',alignItems:'center'}}
+            onPress={()=>navigation.navigate('MeasurementPage')}
+            >
+            <Image style={{resizeMode:'contain',height:wp(8),width:wp(8)}}  source={require('./../assets/measurementicon.png')} />
+            </Pressable>
+        </View>
         <ScrollView showsVerticalScrollIndicator={false} style={styles.cateMain}>
         {
             men &&

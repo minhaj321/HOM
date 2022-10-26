@@ -6,7 +6,13 @@
             val:val
         }
         }
-        
+
+        export const setReset = ()=>{
+            return{
+                type:'reset',
+            }
+            }
+    
 
     export const setResult = (type,entry)=>{
         return{
